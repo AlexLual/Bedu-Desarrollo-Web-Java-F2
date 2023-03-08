@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CalculadoraTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-03-03T02:52:59" hostname="DESKTOP-1HIU7RE" time="0.09">
+  <properties/>
+  <testcase name="Prueba resta" classname="CalculadoraTest" time="0.079"/>
+  <testcase name="Prueba suma" classname="CalculadoraTest" time="0.001"/>
+  <testcase name="Prueba multiplicación" classname="CalculadoraTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
