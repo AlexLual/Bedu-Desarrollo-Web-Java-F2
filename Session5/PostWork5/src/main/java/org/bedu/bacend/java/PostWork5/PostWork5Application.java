@@ -35,7 +35,7 @@ public class PostWork5Application implements CommandLineRunner {
 		System.out.println("Introduce el nombre: ");
 		String nombre = reader.nextLine();
 
-		System.out.println("Introduce el teléfono: ");
+		System.out.println("Introduce el telefono: ");
 		String telefono = reader.nextLine();
 
 		if (validadorTelefono.isValido(telefono)) {
