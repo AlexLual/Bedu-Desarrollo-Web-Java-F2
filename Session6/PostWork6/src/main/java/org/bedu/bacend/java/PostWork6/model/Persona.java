@@ -56,3 +56,12 @@ public class Persona implements Comparable<Persona> {
         return this.nombre.compareTo(o.nombre);
     }
 }
+
+//La clase tiene dos variables miembro privadas: nombre y telefono, ambas de tipo String.
+//La clase tiene dos constructores: uno sin argumentos y otro que toma un nombre y un telefono.
+// También hay métodos get y set para acceder y modificar las variables miembro nombre y telefono.
+//La clase tiene tres métodos anulados (override) de la clase Object. El método toString() devuelve una cadena
+// que representa el objeto Persona, el método equals()
+// se utiliza para comparar dos objetos Persona y el método hashCode() devuelve un código hash del objeto.
+//La clase también implementa la interfaz Comparable, lo que significa que los objetos Persona pueden ser
+// comparados y ordenados entre sí. La comparación se realiza en función del valor de nombre de cada objeto.
