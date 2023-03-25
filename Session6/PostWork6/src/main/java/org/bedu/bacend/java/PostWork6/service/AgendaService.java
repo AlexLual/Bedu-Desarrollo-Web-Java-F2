@@ -20,10 +20,6 @@ public class AgendaService {
     }
 
     public Persona guardaPersona(Persona persona) {
-
-        if (!validadorTelefono.isValido(persona.getTelefono())) {
-            return null;
-        }
         String telefono = validadorTelefono.limpiaNumero(persona.getTelefono());
 
         persona.setTelefono(telefono);

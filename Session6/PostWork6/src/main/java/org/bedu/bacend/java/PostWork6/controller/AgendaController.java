@@ -2,41 +2,47 @@ package org.bedu.bacend.java.PostWork6.controller;
 
 
 
+import jakarta.validation.Valid;
 import org.bedu.bacend.java.PostWork6.model.Persona;
 import org.bedu.bacend.java.PostWork6.service.AgendaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Set;
 
 
-@RestController
-@RequestMapping("/api/v1/agenda")
+
+@Controller
 public class AgendaController {
 
     private final AgendaService agendaService;
+
 
     @Autowired
     public AgendaController(AgendaService agendaService) {
         this.agendaService = agendaService;
     }
 
-    @PostMapping
-    public ResponseEntity<Persona> guardaPersona(@RequestBody Persona persona) {
-        Persona resultado = agendaService.guardaPersona(persona);
+    @GetMapping({"/", "/index"})
+    public String formularioRegistro(Model model) {
+        model.addAttribute("persona", new Persona());
+        model.addAttribute("listaPersonas", agendaService.getPersonas());
 
-        if (resultado == null) {
-            return ResponseEntity.badRequest().build();
-        }
-
-        return ResponseEntity.ok(resultado);
+        return "index";
     }
 
-    @GetMapping
-    public ResponseEntity<Set<Persona>> getPersonas(){
-        return ResponseEntity.ok(agendaService.getPersonas());
+    @PostMapping("/registro")
+    public ModelAndView registra(@Valid Persona persona) {
+
+        agendaService.guardaPersona(persona);
+
+        ModelAndView mav = new ModelAndView("index");
+        mav.addObject("listaPersonas", agendaService.getPersonas());
+        return mav;
     }
+
 }
 
 //Este código define un controlador REST para la agenda de contactos.
