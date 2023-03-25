@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Registro</title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet" />
+</head>
+<body>
+
+<div class="hero-image">
+    <div class="hero-text">
+        <!--        <h1 style="font-size:35px"></h1>-->
+        <p>Registro</p>
+    </div>
+</div>
+
+<form class="form" th:action="@{/registro}" th:object="${usuario}" method="post">
+    <div class="form-group">
+        <!--        <label for="nombre">Nombre: </label>-->
+        <input placeholder="Nombre:" class="form-control" id="nombre" type="text" th:field="*{nombre}">
+        <div th:if="${#fields.hasErrors('nombre')}" th:errorclass="error" th:errors="*{nombre}"></div>
+    </div>
+    <div class="form-group">
+        <!--        <label for="email">E-Mail: </label>-->
+        <input placeholder="E-Mail:" class="form-control" id="email" type="email" th:field="*{email}">
+        <div th:if="${#fields.hasErrors('email')}" th:errorclass="error" th:errors="*{email}" ></div>
+    </div>
+    <div class="form-group">
+        <!--        <label for="username">Usuario: </label>-->
+        <input placeholder="Usuario:" class="form-control" id="username" type="text" th:field="*{username}">
+        <div th:if="${#fields.hasErrors('username')}" th:errorclass="error" th:errors="*{username}"></div>
+    </div>
+
+    <div class="form-group">
+        <!--        <label for="password">Contraseña: </label>-->
+        <input placeholder="Contraseña:" class="form-control" id="password" type="password" th:field="*{password}">
+        <div th:if="${#fields.hasErrors('password')}" th:errorclass="error" th:errors="*{password}"></div>
+    </div>
+
+    <div class="form-group">
+        <!--        <label for="telefono">Telefono: </label>-->
+        <input placeholder="Telefono:" class="form-control" id="telefono" type="text" th:field="*{telefono}">
+        <div th:if="${#fields.hasErrors('telefono')}" th:errorclass="error" th:errors="*{telefono}" ></div>
+    </div>
+
+    <div class="form-group">
+        <!--        <label for="rol">Rol: </label>-->
+        <select placeholder="Rol:" class="form-control" name="rol" id="rol" th:field="*{rol}">
+            <option value="administrador">Administrador</option>
+            <option value="cliente">Cliente</option>
+        </select>
+        <div th:if="${#fields.hasErrors('rol')}" th:errorclass="error" th:errors="*{rol}"></div>
+    </div>
+
+    <input type="submit" class="btn btn-danger" th:value="Guardar"/>
+</form>
+</body>
+</html>
